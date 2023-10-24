@@ -8,5 +8,4 @@ public interface IBasePom
     protected void Click(By selector);
     protected bool IsVisible(By selector);
     protected void SendKeys(By selector, string text);
-    protected void Clear(By selector);
 }

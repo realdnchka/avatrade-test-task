@@ -3,20 +3,20 @@ using OpenQA.Selenium.Support.UI;
 
 namespace AvatradeTestTask.POMs;
 
-public class BasePom: IBasePom
+public abstract class BasePom: IBasePom
 {
-    protected WebDriver driver;
+    private WebDriver _driver;
     private WebDriverWait _wait;
 
-    public BasePom(WebDriver driver)
+    protected BasePom(WebDriver driver)
     {
-        this.driver = driver;
+        _driver = driver;
         _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
     }
 
     public void WaitForLoadJs()
     {
-        _wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+        _wait.Until(_driver => ((IJavaScriptExecutor)_driver).ExecuteScript("return document.readyState").Equals("complete"));
     }
 
     public void WaitForElementExist(By selector)
@@ -35,7 +35,7 @@ public class BasePom: IBasePom
     public void Click(By selector)
     {
         WaitForElementExist(selector);
-        driver.FindElement(selector).Click();
+        _driver.FindElement(selector).Click();
     }
 
     public bool IsVisible(By selector)
@@ -55,11 +55,6 @@ public class BasePom: IBasePom
     public void SendKeys(By selector, string text)
     {
         WaitForElementExist(selector);
-        driver.FindElement(selector).SendKeys(text);
-    }
-
-    public void Clear(By selector)
-    {
-        throw new NotImplementedException();
+        _driver.FindElement(selector).SendKeys(text);
     }
 }
