@@ -5,10 +5,10 @@ namespace AvatradeTestTask.POMs;
 
 public abstract class BasePom: IBasePom
 {
-    private WebDriver _driver;
+    private IWebDriver _driver;
     private WebDriverWait _wait;
 
-    protected BasePom(WebDriver driver)
+    protected BasePom(IWebDriver driver)
     {
         _driver = driver;
         _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
@@ -52,6 +52,19 @@ public abstract class BasePom: IBasePom
         }
     }
 
+    public void WaitForElementIsVisible(By selector)
+    {
+        try
+        {
+            WaitForElementExist(selector);
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(selector));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+    
     public void SendKeys(By selector, string text)
     {
         WaitForElementExist(selector);

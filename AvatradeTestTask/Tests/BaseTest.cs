@@ -16,6 +16,7 @@ public class BaseTest
         var options = new ChromeOptions();
         options.AddArgument("no-sandbox");
         driver.Manage().Timeouts().PageLoad.Add(System.TimeSpan.FromSeconds(30));
+        driver.Manage().Window.Maximize();
         driver.Navigate().GoToUrl(_url);
     }
 

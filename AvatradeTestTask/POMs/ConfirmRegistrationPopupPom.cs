@@ -4,13 +4,13 @@ namespace AvatradeTestTask.POMs;
 
 public class ConfirmRegistrationPopupPom: BasePom
 {
-    public ConfirmRegistrationPopupPom(WebDriver driver) : base(driver) { }
+    public ConfirmRegistrationPopupPom(IWebDriver driver) : base(driver) { }
     
     //selectors
     private By _firstNameInput = By.XPath("//input[@name='FirstName']");
     private By _lastNameInput = By.XPath("//input[@name='LastName']");
     private By _birthdayInput = By.XPath("//input[@name='date-of-birth-day']");
-    private By _countryInput = By.XPath("//input[@name='Country']");
+    private By _countryInput = By.XPath("//div[@class='v-select__selections']//input[@name='Country']");
     private By _countryOption(string countryName) => By.XPath($"//div[@role='option']//span[@class='country-name' and contains(text(), '{countryName}')]");
     private By _cityInput = By.XPath("//input[@name='City']");
     private By _streetNameInput = By.XPath("//input[@name='Street']");
@@ -41,60 +41,60 @@ public class ConfirmRegistrationPopupPom: BasePom
     private By _whatsAppUpdatesSwitch = By.XPath("//input[@name='WhatsAppConesnt']");
     
     //actions
-    public ConfirmRegistrationPopupPom FirstNameInputFill(string firstName)
+    public ConfirmRegistrationPopupPom FirstNameInputSendKeys(string firstName)
     {
         SendKeys(_firstNameInput, firstName);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom LastNameInputFill(string lastName)
+    public ConfirmRegistrationPopupPom LastNameInputSendKeys(string lastName)
     {
         SendKeys(_lastNameInput, lastName);
         return this;
     }
     
-    public ConfirmRegistrationPopupPom BirthdayInputFill(string birthday)
+    public ConfirmRegistrationPopupPom BirthdayInputSendKeys(string birthday)
     {
         SendKeys(_birthdayInput, birthday);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom CountryInputFill(string country)
+    public ConfirmRegistrationPopupPom CountryInputSendKeys(string country)
     {
         SendKeys(_countryInput, country);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom CountryOptionSelect(string country)
+    public ConfirmRegistrationPopupPom CountryOptionClick(string country)
     {
         Click(_countryOption(country));
         return this;
     }
-    public ConfirmRegistrationPopupPom CityInputFill(string city)
+    public ConfirmRegistrationPopupPom CityInputSendKeys(string city)
     {
         SendKeys(_cityInput, city);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom StreetNameInputFill(string streetName)
+    public ConfirmRegistrationPopupPom StreetNameInputSendKeys(string streetName)
     {
         SendKeys(_streetNameInput, streetName);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom BuildingNumberInputFill(string buildingNumber)
+    public ConfirmRegistrationPopupPom BuildingNumberInputSendKeys(string buildingNumber)
     {
         SendKeys(_buildingNumberInput, buildingNumber);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom ZipCodeInputFill(string zipCode)
+    public ConfirmRegistrationPopupPom ZipCodeInputSendKeys(string zipCode)
     {
         SendKeys(_zipCodeInput, zipCode);
         return this;
     }
 
-    public ConfirmRegistrationPopupPom PhoneNumberInputFill(string phoneNumber)
+    public ConfirmRegistrationPopupPom PhoneNumberInputSendKeys(string phoneNumber)
     {
         SendKeys(_phoneNumberInput, phoneNumber);
         return this;
