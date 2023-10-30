@@ -1,3 +1,4 @@
+using AvatradeTestTask.Helpers;
 using AvatradeTestTask.Helpers.Models;
 using AvatradeTestTask.POMs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,11 +17,11 @@ public class RegistrationTest: BaseTest
             {
                 new object[]
                 {
-                    new User { FirstName = "First", LastName = "Last", Email = "maisifsdfdss@mail.cor", Password = "Password1!", DateOfBirth = new DateTime(1990, 10, 10), Country = "France", City = "Paris", StreetName = "Street", BuildingNumber = "10", ZipCode = "10001", PhoneNumber = "3333333" },
+                    new User { FirstName = "First", LastName = "Last", Email = new RandomEmailGenerator().Generate(), Password = "Password1!", DateOfBirth = new DateTime(1990, 10, 10), Country = "France", City = "Paris", StreetName = "Street", BuildingNumber = "10", ZipCode = "10001", PhoneNumber = "3333333" },
                 },
                 new object[]
                 {
-                    new User { FirstName = "First", LastName = "Last", Email = "dsjfdjsfjsd@mail.or", Password = "Password1!", DateOfBirth = new DateTime(1990, 10, 10), Country = "Afghanistan", City = "Kabul", StreetName = "Street", BuildingNumber = "10", ZipCode = "10001", PhoneNumber = "3333333" },
+                    new User { FirstName = "First", LastName = "Last", Email = new RandomEmailGenerator().Generate(), Password = "Password1!", DateOfBirth = new DateTime(1990, 10, 10), Country = "Afghanistan", City = "Kabul", StreetName = "Street", BuildingNumber = "10", ZipCode = "10001", PhoneNumber = "3333333" },
                 }
             };
         }
