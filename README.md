@@ -3,7 +3,7 @@
 * MSTest
 
 #### Run
-Use follow command in root folder
+Use following command in root folder
 ```
 dotnet test
 ```
